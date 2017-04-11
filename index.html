@@ -1,72 +1,93 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <!-- <meta charset="utf-8"> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
     <link rel="stylesheet" href="shoe_catalogue.css">
     <title>Catalogue</title>
-    <h1>Shoe Catalogue</h1>
+    <center><h1>Shoe Catalogue</h1></center>
 
-  </head>
+</head>
 
-  <body >
-<center><img src="feit.jpg" alt="shoe" height="300px"></center>
-<br><br><br><br>
+<body>
+    <center><img src="feit.jpg" alt="shoe" height="300px"></center>
+    <br><br><br><br>
 
-<script type="text/Handlebars-x" id="handlebarsTemp2">
+    <script type="text/x-handlebars-template" id="handlebarsTemp2">
 
-<center><select id="colordrop" >
-              {{#each colors}}
-             <option  >colors</option>
-             <option value ="{{name1}}" >{{name1}}</option>
-             <option  >{{name2}}</option>
-             <option  >{{name3}}</option>
-             {{/each}}
-</select></center>
-             <br><br><br><br>
+        <center><select id="filter3" id="colordrop" name="Colour">
+        <option value="" disabled selected>colors</option>
+        {{#each colors}}
+        <option value="{{colour}}">{{colour}}</option>
+        {{/each}}
+        </select>
+        </center>
 
-             <center><select id="sizedrop">
-                        <option value="Brown">sizes</option>
-                        <option value="Red">{{}}</option>
-                        <option value="White">{{}}</option>
-                        <option value="Black">{{}}</option>
-              </select></center>
-
-</script>
-                        <br><br><br><br>
+    </script>
 
 
-        <button  id="filter">Filter Stock</button>
 
-        <div id="viewColor"></div>
+    <div class="colourOut">
+    </div>
+    <br><br><br><br>
 
-                        <center><input type="button" id="button" value="Search"></center>
+    <div id="viewColor"></div>
 
 
-    </select>
+
+    <script type="text/x-handlebars-template" id="handlebarsTemp3">
+        <center>
+            <select id="filter2" id="sizedrop" name="size">
+      <option value="" disabled selected>sizes</option>
+    {{#each sizes}}
+    <option value="{{size}}">{{size}}</option>
+    {{/each}}
+  </select>
+        </center>
+
+    </script>
+    <center>
+        <div class="sizeOut">
+        </div>
+    </center>
+
+    <center><input type="button" id="button" value="Search"></center>
+
+
+
+
+
+
+
+
+
 
     <script type="text/Handlebars-x" id="handlebarsTemp1">
-    <center><table id= "Tstyle">
-      <tr>
-        <th>Brand</th>
-        <th>Color</th>
-        <th>Prices</th>
-        <th>in_stock</th>
-      </tr>
-      {{#each stock}}
-        <tr>
-          <td>{{brand}}</td>
-          <td>{{color}}</td>
-          <td>{{price}}</td>
-          <td>{{in_stock}}</td>
-        </tr>
-      {{/each}}
-    </table></center>
+        <center>
+            <table id="Tstyle">
+                <tr>
+                    <th>Brand</th>
+                    <th>Color</th>
+                    <th>Prices</th>
+                    <th>in_stock</th>
+                </tr>
+                {{#each stock}}
+                <tr>
+                    <td>{{brand}}</td>
+                    <td>{{color}}</td>
+                    <td>{{price}}</td>
+                    <td>{{in_stock}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </center>
     </script>
 
     <div id="display">
     </div>
 
-  </body>
-  <script src="shoe_catalogue.js" charset="utf-8"></script>
+</body>
+<script src="shoe_catalogue.js" charset="utf-8"></script>
+
 </html>

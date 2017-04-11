@@ -5,3 +5,9 @@ table, th, td {
 td {
   padding: 20px;
 }
+#button {
+  margin-top: 25px;
+}
+#filter {
+  margin-bottom: 40px;
+}
