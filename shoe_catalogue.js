@@ -4,9 +4,6 @@ var searchBtn = document.getElementById('button');
 var display = document.getElementById('display');
 
 
-// var test1 = size.childNodes[3];
-// var test2 = size.childNodes[5];
-// var test3 = size.childNodes[7];
 var Template1 = document.getElementById("handlebarsTemp1");
 var Instance1 = Handlebars.compile(Template1.innerHTML);
 
@@ -68,7 +65,7 @@ var colourOut = document.querySelector(".colourOut");
 
 (function() {
     var colorDrop = Instance2({
-        colors: shoes
+        colour: shoes
     });
     colourOut.innerHTML = colorDrop;
 
@@ -84,3 +81,78 @@ var sizeOut = document.querySelector(".sizeOut");
     });
     sizeOut.innerHTML = sizedrop;
 })()
+
+
+
+var Template4 = document.getElementById('handlebarsTemp4');
+var Instance4 = Handlebars.compile(Template4.innerHTML);
+var filter4 = document.getElementById("filter4");
+var brandOut = document.querySelector(".brandOut");
+
+(function() {
+    var brandDrop = Instance4({
+        Brand: shoes
+    });
+    brandOut.innerHTML = brandDrop;
+})()
+
+
+var addButt = document.getElementById("addButt");
+addButt.addEventListener("click", function() {
+    var boxColour = document.getElementById("boxColour");
+    var boxSize = document.getElementById('boxSize');
+    var boxBrand = document.getElementById("boxBrand");
+
+
+    var colourValue = boxColour.value;
+    var sizeValue = boxSize.value;
+    var brandValue=boxBrand.value;
+
+
+    var stockAdded = {
+
+        colour: boxColour.value,
+
+        size: boxSize.value,
+
+        brand:boxBrand.value
+
+    };
+    shoes.push(stockAdded);
+
+    var result = Instance1({
+        stock: shoes
+    });
+    display.innerHTML = result;
+
+
+    (function() {
+        var colorDrop = Instance2({
+            colour: shoes
+        });
+        colourOut.innerHTML = colorDrop;
+
+    })(),
+
+
+    (function() {
+        var sizedrop = Instance3({
+            sizes: shoes
+        });
+        sizeOut.innerHTML = sizedrop;
+    })(),
+
+
+    (function() {
+        var brandDrop = Instance4({
+            Brand: shoes
+        });
+        brandOut.innerHTML = brandDrop;
+    })()
+
+    document.getElementById("boxColour").value=""
+    document.getElementById('boxSize').value=""
+   document.getElementById("boxBrand").value=""
+
+
+});

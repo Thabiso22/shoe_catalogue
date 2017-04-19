@@ -11,3 +11,8 @@ td {
 #filter {
   margin-bottom: 40px;
 }
+#textboxes {
+  background-color: white;
+  width: 351px;
+  padding-bottom: 20px;
+}
