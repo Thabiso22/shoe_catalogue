@@ -16,3 +16,16 @@ td {
   width: 351px;
   padding-bottom: 20px;
 }
+h1 {
+  background-color: white;
+  border-style: ridge;
+}
+ #styleDrop{
+  background-color: white;
+  width: 351px;
+}
+
+#sizeStyle {
+  background-color: red;
+  padding-top: 20px;
+}

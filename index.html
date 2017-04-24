@@ -12,12 +12,13 @@
 </head>
 
 <body background="bk.jpg">
-    <center><img src="feit.jpg" alt="shoe" height="300px"></center>
+    <center><img src="feit2.jpg" alt="shoe" height="300px"></center>
     <br><br><br><br>
-
+<!--this div is for styling my dropDowns background-color  -->
+<center><div id="styleDrop">
     <script type="text/x-handlebars-template" id="handlebarsTemp2">
 
-        <center><select id="filter3" id="colordrop" name="Colour">
+        <center><select id="filter3" id="colordrop" class="colourVal" name="Colour">
         <option value="" disabled selected>colours</option>
         {{#each colour}}
         <option value="{{colour}}">{{colour}}</option>
@@ -33,30 +34,35 @@
 
     <div id="viewColor"></div>
 
+<div id="sizeStyle">
     <script type="text/x-handlebars-template" id="handlebarsTemp3">
         <center>
-            <select id="filter2" id="sizedrop" name="size">
+            <select id="filter2" id="sizedrop"  class="sizeVal" name="size">
       <option value="" disabled selected>sizes</option>
     {{#each sizes}}
     <option value="{{size}}">{{size}}</option>
     {{/each}}
   </select>
+
         </center>
 
     </script>
     <center>
+<!--this div is for sizeStyle  -->
         <div class="sizeOut">
         </div>
+        <!--sizeStyle is closed here  -->
+      </div>
     </center>
 
-
+<center><button id="CheckButton">Check Selected</button></center>
 
 
 
 
     <script type="text/x-handlebars-template" id="handlebarsTemp4">
         <center>
-            <select id="filter4"  name="Brand">
+            <select id="filter4" class="brandVal" name="Brand">
       <option value="" disabled selected>Brands</option>
     {{#each Brand}}
     <option value="{{brand}}">{{brand}}</option>
@@ -66,14 +72,19 @@
 
     </script>
     <center>
+
         <div class="brandOut">
         </div>
+
+    </center>
+
     </center>
 
 
 
 
-
+    <!--this div closes styleDrop  -->
+    </div>
 
 
 <div id="textboxes">

@@ -3,10 +3,8 @@ var color = document.getElementById('colordrop');
 var searchBtn = document.getElementById('button');
 var display = document.getElementById('display');
 
-
 var Template1 = document.getElementById("handlebarsTemp1");
 var Instance1 = Handlebars.compile(Template1.innerHTML);
-
 
 var shoes = [{
         brand: 'Adidas',
@@ -27,7 +25,7 @@ var shoes = [{
         brand: 'DKNY',
         colour: "Brown",
         price: "R280",
-        size: 10,
+        size: "10",
         in_stock: 11
     },
 
@@ -46,15 +44,6 @@ var shoes = [{
         in_stock: "23"
     },
 ];
-
-searchBtn.addEventListener("click", function() {
-
-    var result = Instance1({
-        stock: shoes
-    });
-    display.innerHTML = result;
-
-});
 
 var Template2 = document.getElementById("handlebarsTemp2");
 var Instance2 = Handlebars.compile(Template2.innerHTML);
@@ -82,8 +71,6 @@ var sizeOut = document.querySelector(".sizeOut");
     sizeOut.innerHTML = sizedrop;
 })()
 
-
-
 var Template4 = document.getElementById('handlebarsTemp4');
 var Instance4 = Handlebars.compile(Template4.innerHTML);
 var filter4 = document.getElementById("filter4");
@@ -106,7 +93,7 @@ addButt.addEventListener("click", function() {
 
     var colourValue = boxColour.value;
     var sizeValue = boxSize.value;
-    var brandValue=boxBrand.value;
+    var brandValue = boxBrand.value;
 
 
     var stockAdded = {
@@ -115,7 +102,7 @@ addButt.addEventListener("click", function() {
 
         size: boxSize.value,
 
-        brand:boxBrand.value
+        brand: boxBrand.value
 
     };
     shoes.push(stockAdded);
@@ -150,9 +137,50 @@ addButt.addEventListener("click", function() {
         brandOut.innerHTML = brandDrop;
     })()
 
-    document.getElementById("boxColour").value=""
-    document.getElementById('boxSize').value=""
-   document.getElementById("boxBrand").value=""
+    document.getElementById("boxColour").value = ""
+    document.getElementById('boxSize').value = ""
+    document.getElementById("boxBrand").value = ""
 
 
+});
+var filteredValues=[];
+searchBtn.addEventListener("click", function(evt) {
+
+    var result = Instance1({
+        stock: shoes
+    });
+    display.innerHTML = result;
+
+});
+
+var CheckButton =document.getElementById("CheckButton");
+
+CheckButton.addEventListener("click", function(){
+
+var results=[];
+
+var brandVal = document.querySelector(".brandVal");
+var brandIndex = brandVal.selectedIndex;
+var brandSelected = brandVal.options[brandIndex].value
+
+var colourVal = document.querySelector(".colourVal");
+var colourIndex = colourVal.selectedIndex;
+var colourSelected = colourVal.options[colourIndex].value
+
+var sizeVal = document.querySelector(".sizeVal");
+var sizeIndex = sizeVal.selectedIndex;
+var sizeSelected = sizeVal.options[sizeIndex].value
+
+for (var i = 0; i < shoes.length; i++) {
+  var type = shoes[i];
+
+  if (brandSelected===type.brand || sizeSelected===type.size||colourSelected===type.colour){
+    results.push(type)
+  }
+
+};
+var lookedShoe = Instance1({
+  stock: results
+})
+display.innerHTML = lookedShoe;
 });
