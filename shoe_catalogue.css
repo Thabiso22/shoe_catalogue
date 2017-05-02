@@ -24,8 +24,6 @@ h1 {
   background-color: white;
   width: 351px;
 }
-
-#sizeStyle {
-  background-color: red;
-  padding-top: 20px;
+.sizeOut {
+  margin-bottom: 30px;
 }
